@@ -34,6 +34,7 @@ const validationSchema = Yup.object({
 
 const NoteForm = ({ onClose }: NoteFormProps) => {
 	const queryClient = useQueryClient();
+
 	const mutation = useMutation({
 		mutationFn: createNote,
 		onSuccess: () => {
@@ -47,10 +48,7 @@ const NoteForm = ({ onClose }: NoteFormProps) => {
 		actions: FormikHelpers<InitialValues>
 	) => {
 		mutation.mutate(values, {
-			onSuccess: () => {
-				onClose();
-				actions.resetForm();
-			},
+			onSettled: () => actions.setSubmitting(false),
 		});
 	};
 
