@@ -30,7 +30,7 @@ const NotesClient = () => {
 
 	return (
 		<div className={css.app}>
-			<header className={css.toolbar}>
+			<div className={css.toolbar}>
 				<SearchBox onChange={handleSearch} />
 				{isSuccess && data.totalPages > 1 && (
 					<Pagination
@@ -43,8 +43,9 @@ const NotesClient = () => {
 				<button onClick={() => setIsOpen(true)} className={css.button}>
 					Create note +
 				</button>
-			</header>
+			</div>
 			{data && data.notes.length > 0 && <NoteList notes={data.notes} />}
+
 			{isOpen && (
 				<Modal onClose={() => setIsOpen(false)}>
 					<NoteForm onClose={() => setIsOpen(false)} />

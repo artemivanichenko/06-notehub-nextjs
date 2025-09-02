@@ -7,8 +7,6 @@ interface ModalProps {
 	onClose: () => void;
 }
 
-const modalRoot = document.body;
-
 const Modal = ({ children, onClose }: ModalProps) => {
 	useEffect(() => {
 		document.body.style.overflow = "hidden";
@@ -36,7 +34,7 @@ const Modal = ({ children, onClose }: ModalProps) => {
 			aria-modal="true">
 			<div className={css.modal}>{children}</div>
 		</div>,
-		modalRoot
+		document.body
 	);
 };
 
