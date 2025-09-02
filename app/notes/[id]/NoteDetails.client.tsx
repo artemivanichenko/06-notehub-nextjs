@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import css from "./page.module.css";
 import Loading from "@/app/loading";
 
-const NotesDetailsClient = () => {
+const NoteDetailsClient = () => {
 	const { id } = useParams<{ id: string }>();
 	const { data, isLoading, error } = useQuery({
 		queryKey: ["note", id],
@@ -34,4 +34,4 @@ const NotesDetailsClient = () => {
 	);
 };
 
-export default NotesDetailsClient;
+export default NoteDetailsClient;
